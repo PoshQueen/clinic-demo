@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evergreen Family Clinic (Demo)</title>
+<style>
+  :root { --teal:#0f766e; --teal-dark:#0b5a54; --mint:#e6f4f1; --ink:#1f2937; --muted:#5b6670; --line:#dbe5e3; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin:0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color:var(--ink); line-height:1.6; background:#fff; }
+  a { color:inherit; text-decoration:none; }
+  .wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
+  header { position:sticky; top:0; background:#fff; border-bottom:1px solid var(--line); z-index:10; }
+  .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .logo { font-weight:700; font-size:1.15rem; color:var(--teal); }
+  .btn { display:inline-block; background:var(--teal); color:#fff; padding:11px 20px; border-radius:8px; font-weight:600; border:0; cursor:pointer; }
+  .btn:hover { background:var(--teal-dark); }
+  .hero { background:var(--mint); padding:64px 0; }
+  .hero h1 { font-size:2.2rem; line-height:1.2; margin:0 0 14px; }
+  .hero p { max-width:560px; color:var(--muted); font-size:1.05rem; margin:0 0 24px; }
+  section { padding:56px 0; }
+  h2 { font-size:1.6rem; margin:0 0 8px; }
+  .sub { color:var(--muted); margin:0 0 28px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; }
+  .card { border:1px solid var(--line); border-radius:12px; padding:20px; background:#fff; }
+  .card h3 { margin:0 0 6px; font-size:1.05rem; color:var(--teal); }
+  .card p { margin:0; color:var(--muted); font-size:.95rem; }
+  .steps { counter-reset:s; display:grid; gap:14px; }
+  .step { display:flex; gap:14px; align-items:flex-start; }
+  .step::before { counter-increment:s; content:counter(s); flex:0 0 32px; height:32px; border-radius:50%; background:var(--teal); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; }
+  .book { background:var(--mint); }
+  .book-box { background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px; min-height:560px; }
+  #my-cal-inline { width:100%; min-height:540px; overflow:auto; }
+  .note { font-size:.9rem; color:var(--muted); margin-top:12px; }
+  footer { padding:28px 0; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; }
+  @media (max-width:600px) { .hero h1 { font-size:1.7rem; } .hero { padding:44px 0; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">Evergreen Family Clinic</div>
+    <a class="btn" href="#book">Book Appointment</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>Friendly, unhurried care for the whole family.</h1>
+    <p>Tell us why you are coming in and what you would like to ask your doctor. We will have everything ready before you arrive.</p>
+    <a class="btn" href="#book">Book Appointment</a>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <h2>Our services</h2>
+    <p class="sub">Everyday care, all in one place.</p>
+    <div class="grid">
+      <div class="card"><h3>Family Medicine</h3><p>Check-ups, illness visits and long-term care for all ages.</p></div>
+      <div class="card"><h3>Preventive Care</h3><p>Screenings, vaccinations and personalised health plans.</p></div>
+      <div class="card"><h3>Women's Health</h3><p>Routine exams, family planning and wellness guidance.</p></div>
+      <div class="card"><h3>Nutrition Counselling</h3><p>Practical eating plans with a registered professional.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="doctors" style="background:#fafcfc;">
+  <div class="wrap">
+    <h2>Meet our doctors</h2>
+    <p class="sub">Demo profiles with fictional names.</p>
+    <div class="grid">
+      <div class="card"><h3>Dr. Maya Collins</h3><p>Family Medicine. Focus on long-term and preventive care.</p></div>
+      <div class="card"><h3>Dr. Daniel Reyes</h3><p>Internal Medicine. Focus on chronic conditions.</p></div>
+      <div class="card"><h3>Dr. Amina Bello</h3><p>Women's Health. Focus on wellness and prevention.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>How booking works</h2>
+    <p class="sub">Three quick steps, all on this page.</p>
+    <div class="steps">
+      <div class="step"><div><strong>Pick a time.</strong> Choose any open slot in the calendar below.</div></div>
+      <div class="step"><div><strong>Tell us why.</strong> Share your reason for visiting and any questions for the doctor.</div></div>
+      <div class="step"><div><strong>Get confirmed.</strong> A confirmation email arrives right away, with a reminder before your visit.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="book" class="book">
+  <div class="wrap">
+    <h2>Book your appointment</h2>
+    <p class="sub">Choose a time that suits you. Your confirmation will be sent to your email.</p>
+    <div class="book-box">
+
+      <!-- ====== CAL.COM BOOKING CALENDAR ======
+           To change which calendar shows, edit ONLY the CAL_LINK line below.
+           Format:  your-cal-username/your-event-name   (example: jane-doe/consultation)
+           Or: delete this whole block and paste the inline embed code copied from Cal.com. -->
+      <div id="my-cal-inline"></div>
+      <script type="text/javascript">
+        const CAL_LINK = https://cal.com/consultation-ffp9;
+
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+
+        Cal("init", { origin: "https://cal.com" });
+        Cal("inline", { elementOrSelector: "#my-cal-inline", calLink: CAL_LINK, layout: "month_view" });
+        Cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      </script>
+      <!-- ====== END CAL.COM BOOKING CALENDAR ====== -->
+
+    </div>
+    <p class="note">This is a demonstration clinic. All names, details and appointments are fictional.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Evergreen Family Clinic (Demo) &middot; 100 Example Street, Sample City &middot; (555) 010-0100 &middot; Fictional business for portfolio use only.</div>
+</footer>
+
+</body>
+</html>
